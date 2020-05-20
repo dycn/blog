@@ -1,0 +1,53 @@
+{{ define "header" }}
+{{ partial "header-norm" . }}
+{{ end }}
+
+{{ define "main" }}
+<div class="columns">
+    <div class="column is-9">
+        <div class="tile is-child box">
+            <div class="content">
+                <!-- Main container -->
+                <nav class="level">
+                    <!-- Left side -->
+                    <div class="level-left">
+                        <div class="level-item">
+                            {{ partial "publishat" . }}
+                        </div>
+                    </div>
+
+                    <!-- Right side -->
+                    {{if .Site.Params.OpenShare}}
+                    <div class="share-component level-right" data-disabled="google,diandian,tencent,qzone"
+                        data-description="Share.js - 一键分享到微博，QQ空间，腾讯微博，人人，豆瓣"
+                        data-mobile-sites="weibo,qq,qzone,tencent">
+                    </div>
+                    {{end}}
+                </nav>
+                <hr>
+                {{ if not (eq (.Param "showtoc") false) }}
+                <header>
+                    <h2>{{i18n "toc"}}</h2>
+                </header>
+                {{.TableOfContents}}
+                {{ end }}
+                <hr>
+                {{ .Content }}
+                <!-- Reward -->
+                {{ if .Site.Params.Reward }}
+                <hr> {{ partial "widget-reward" . }} {{ end }}
+
+                <br>
+                <br>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="column is-3">
+        {{ partial "widget-recent.html" . }}
+        {{ partial "widget-related.html" . }}
+        {{ partial "widget-tags.html" . }}
+    </div>
+</div>
+{{ end }}
