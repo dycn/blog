@@ -1,0 +1,150 @@
+# 全局设置
+baseURL = "https://dycn.github.io"
+theme = "dooz"
+languageCode = "zh"
+defaultContentLanguage = "zh"  #调整中英文
+hasCJKLanguage = true
+enableEmoji= true
+googleAnalytics = "G-DK042XSJ2J" #内置了谷歌统计模板  {{ template "_internal/google_analytics_async.html" . }}
+canonifyurls = true
+paginate = 10
+metaDataFormat = "toml"
+
+[languages]
+  [languages.zh]
+    # baseURL = "http://dycn.github.io"
+    languagedirection = "zh"
+    title = "dycn的博客"
+    languageName = "Chinese"
+    copyright="版权所有"
+    weight = 1
+    [languages.zh.params]
+      #author= "shongsheng" #replace the dedault param
+      homeTitle="dycn's gitpage" 
+      slogan="code & study"
+      title_404 = "你来到了没有知识的荒原 :("
+      wechat = "img/theme-dooz/wechat.png"
+  [languages.en]
+    # baseURL = "https://hollson.github.io"
+    # contentDir = "content/english"
+    title = "Mafool"
+    languageName = "English"
+    copyright="All Rights Reserved"
+    weight = 1
+    [languages.en.params]
+      #author= "shongsheng" #replace the dedault param
+      homeTitle="Programmer's Exclusive Blog" 
+      slogan="A Hugo theme for programmers."
+      title_404="Sorry, page was not found."
+
+[outputs]
+home = ["HTML", "RSS"]
+#home = ["HTML", "RSS", "JSON"]
+
+# 首页设置
+[params]
+  #Author
+  author = "dycn"
+  city = "Beijing"
+  avatar = "img/avatar.png"
+  shortcut = "img/favicon.ico"
+  aphorism="警惕好高骛远！"
+  github="https://github.com/dycn"
+  #csdn="https://blog.csdn.net/xxx"
+  #cnblog="https://www.cnblogs.com/xxx/"
+
+  #打赏功能 
+  reward= true
+  rewardTitle="勘误请加微信"
+  rewardPrompt="这部分本是打赏，后端程序员硬改😓成联系方式"
+
+
+  #公告信息(支持markdown语法)
+  notice=""#"**[Dooz theme](https://github.com/hollson/hugo-theme-dooz)** updated, hurry up and experience it! `2020.03.22`"
+ 
+  #站点设置
+  timeOfMonth="2006年1月"
+  timeOfDay="2006年1月2日"
+  hero = "img/theme-dooz/2.jpg"
+  slogan = "提升码农亩产，掰直码农方向，授人以渔，功德无量，利在千秋 。"
+  image_404 = "img/res/404.jpg"
+  title_404 = "你来到了没有知识的荒原 :("
+  openShare= false #测试微信分享发现要下载文件
+  
+  #百度统计
+  analyze_baidu="31e87e1966f753587280eba4f24a15b1"
+  # analyze_baidu_gitee="d4c707fc3a17c53bb106bb52238032f0"   #Gitee
+  # analyze_google="G-DK042XSJ2J"
+
+  #SEO优化(meta中的信息)
+  homeTitle = "码农的专属博客"
+  keywords = "码农,hugo,theme,blog,developer,programmer,coder,goer,程序员,主题,个人博客,github博客,golang"
+  description = "hugo搭建的程序员专属博客站点，以优美的博客风格，丰富的展现方式向广大程序员们传播最新的golang、docker、k8s、微服务、大数据、人工智能、等技术。"
+
+# 友情链接
+# https://gohugo.io/documentation/
+
+# Content中的构建的固定链接
+[permalinks]
+    post = "/:year/:month/:title"
+
+# 分类体系（Taxonomies）表示作者对内容的一套或多套分类。比如标签（tags）、类目（categories）、归档（archives）等
+[taxonomies]
+    tag = "tags"
+    category = "categories"
+    archive = "archives"
+    # series = "series"
+
+# 页脚导航菜单
+[[menu.friendly]]
+    name="Mafool"
+    url="http://www.mafool.com"
+    weight="1"
+[[menu.friendly]]
+    name="Hugo"
+    url="https://gohugo.io/documentation/"
+    weight="2"
+[[menu.friendly]]
+    name="Bulma"
+    url="https://bulma.io/"
+    weight="3"
+[[menu.friendly]]
+    name="Bootstrapious"
+    url="https://bootstrapious.com/"
+    weight="4"
+
+
+#https://gohugo.io/getting-started/configuration-markup#highlight markdown配置
+#https://gohugo.io/content-management/shortcodes/#highlight  短码
+#https://gohugo.io/content-management/syntax-highlighting/ 高亮
+[markup]
+  defaultMarkdownHandler = "goldmark" #默认的Markdown渲染器
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.parser]
+      attribute = true
+      autoHeadingID = true
+      autoHeadingIDType = "github"
+    [markup.goldmark.renderer]
+      hardWraps = true
+      unsafe = false
+      xHTML = false
+  [markup.highlight]      #Hugo使用Chroma作为其代码突出显示器
+    codeFences = true     #代码栅栏
+    guessSyntax = true    #猜测
+    lineNoStart = 1       #行号初始值
+    lineNos = true        #显示行号
+    lineNumbersInTable = false
+    style = "monokai"     #代码风格，参考https://xyproto.github.io/splash/docs/longer/all.html
+    tabWidth = 4
+  [markup.tableOfContents] #文档目录，H1作为SEO的关键字
+    startLevel = 2         #开始级别：H2
+    endLevel = 3           #结束级别：H3
+    ordered = false        #是否排序
