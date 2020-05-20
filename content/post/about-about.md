@@ -1,5 +1,5 @@
 +++
-title= "About"
+title= "关于我"
 url= "/post/1589965301/"
 #aliases = ["/posts/ace8733d5a58d630a079ad6195979707/"]
 keywords= "自我介绍,introduction"

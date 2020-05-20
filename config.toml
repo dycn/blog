@@ -24,6 +24,7 @@ metaDataFormat = "toml"
       slogan="code & study"
       title_404 = "你来到了没有知识的荒原 :("
       wechat = "img/theme-dooz/wechat.png"
+      About = "post/1589965301"
   [languages.en]
     # baseURL = "https://hollson.github.io"
     # contentDir = "content/english"
